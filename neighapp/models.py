@@ -24,10 +24,10 @@ class Neighbourhood(models.Model):
     def __str__(self):
         return self.name
 class Profile(models.Model):
-    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    # user = models.OneToOneField(User,on_delete=models.CASCADE)
     name = models.CharField(max_length=20)
     email = models.EmailField(max_length=200)
-    neighborhood = models.ForeignKey(Neighbourhood,null=True) 
+    neighborhood = models.ForeignKey(Neighbourhood,null=True,on_delete=models.CASCADE) 
     
     # @receiver(post_save, sender=User)
     # def create_profile(sender, instance, created, **kwargs):
