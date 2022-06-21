@@ -25,7 +25,7 @@ class Neighbourhood(models.Model):
     def __str__(self):
         return self.name
 class Profile(models.Model):
-    # user = models.OneToOneField(User,on_delete=models.CASCADE)
+    user = models.OneToOneField(User,on_delete=models.CASCADE, default=None)
     name = models.CharField(max_length=20)
     email = models.EmailField(max_length=200)
     neighborhood = models.ForeignKey(Neighbourhood,null=True,on_delete=models.CASCADE) 
