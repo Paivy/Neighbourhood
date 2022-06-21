@@ -81,3 +81,16 @@ def profile(request,username):
         business_form = BusinessForm()
     
     return render(request, 'profile.html',{"profile":profile,"profile_details":profile_details,"businesses":businesses, 'business_form':business_form,})
+
+
+@login_required(login_url='login')
+def search_business(request):
+    if request.method == 'POST':
+        searched = request.POST['searched']
+        business = Business.objects.filter(name__contains=searched)
+
+        return render(request, 'search.html',
+        {'searched':searched,'business':business})
+    else:
+         return render(request, 'search.html',
+        {})
