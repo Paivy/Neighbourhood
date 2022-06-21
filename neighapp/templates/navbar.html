@@ -19,10 +19,16 @@
             >Home</a
           >
         </li>
-        </ul>
-
-        
+       
+    
         {% if user.is_authenticated %}
+        <li class="nav-item">
+              <a class="nav-link" href="/admin"  >
+                  <i class="fas fa-plus"></i></i>Admin</a>
+            </li>
+        <li class="nav-item">
+                <a class="nav-link" href="{% url 'profile' username=user %}">
+                    <i class="fas fa-user"></i>Profile</a>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'logout'  %}">Logout</a>
         </li>
